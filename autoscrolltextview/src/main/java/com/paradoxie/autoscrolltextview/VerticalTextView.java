@@ -1,5 +1,7 @@
-package com.paradoxie.autoscrolltextview;/**
+package com.paradoxie.autoscrolltextview;
+/**
  * Created by xiehehe on 16/7/19.
+ * update: ericyl
  */
 
 import android.content.Context;
@@ -16,6 +18,8 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.paradoxie.autoscrolltextview.model.TextModel;
+
 import java.util.ArrayList;
 
 /**
@@ -23,8 +27,9 @@ import java.util.ArrayList;
  * Date: 2016-07-19
  * Time: 22:45
  * FIXME
+ * update: ericyl
  */
-public class VerticalTextview extends TextSwitcher implements ViewSwitcher.ViewFactory {
+public class VerticalTextView extends TextSwitcher implements ViewSwitcher.ViewFactory {
 
     private static final int FLAG_START_AUTO_SCROLL = 0;
     private static final int FLAG_STOP_AUTO_SCROLL = 1;
@@ -47,18 +52,18 @@ public class VerticalTextview extends TextSwitcher implements ViewSwitcher.ViewF
     private OnItemClickListener itemClickListener;
     private Context mContext;
     private int currentId = -1;
-    private ArrayList<String> textList;
+    private ArrayList<TextModel> textList;
     private Handler handler;
 
-    public VerticalTextview(Context context) {
+    public VerticalTextView(Context context) {
         this(context, null);
         mContext = context;
     }
 
-    public VerticalTextview(Context context, AttributeSet attrs) {
+    public VerticalTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
-        textList = new ArrayList<String>();
+        textList = new ArrayList<>();
     }
 
     public void setAnimTime(long animDuration) {
@@ -85,7 +90,7 @@ public class VerticalTextview extends TextSwitcher implements ViewSwitcher.ViewF
                     case FLAG_START_AUTO_SCROLL:
                         if (textList.size() > 0) {
                             currentId++;
-                            setText(textList.get(currentId % textList.size()));
+                            setText(textList.get(currentId % textList.size()).getTitle());
                         }
                         handler.sendEmptyMessageDelayed(FLAG_START_AUTO_SCROLL,time);
                         break;
@@ -100,7 +105,7 @@ public class VerticalTextview extends TextSwitcher implements ViewSwitcher.ViewF
      * 设置数据源
      * @param titles
      */
-    public void setTextList(ArrayList<String> titles) {
+    public void setTextList(ArrayList<TextModel> titles) {
         textList.clear();
         textList.addAll(titles);
         currentId = -1;

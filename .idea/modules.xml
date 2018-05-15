@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AutoVerticalTextview.iml" filepath="$PROJECT_DIR$/AutoVerticalTextview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AutoVerticalTextview.iml" filepath="$PROJECT_DIR$/AutoVerticalTextview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autoscrolltextview/autoscrolltextview.iml" filepath="$PROJECT_DIR$/autoscrolltextview/autoscrolltextview.iml" />
       <module fileurl="file://$PROJECT_DIR$/autoscrolltextview/autoscrolltextview.iml" filepath="$PROJECT_DIR$/autoscrolltextview/autoscrolltextview.iml" />
     </modules>
   </component>
