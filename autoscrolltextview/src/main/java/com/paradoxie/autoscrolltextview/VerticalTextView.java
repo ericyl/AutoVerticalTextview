@@ -21,6 +21,7 @@ import android.widget.ViewSwitcher;
 import com.paradoxie.autoscrolltextview.model.TextModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: xiehehe
@@ -52,7 +53,7 @@ public class VerticalTextView extends TextSwitcher implements ViewSwitcher.ViewF
     private OnItemClickListener itemClickListener;
     private Context mContext;
     private int currentId = -1;
-    private ArrayList<TextModel> textList;
+    private List<TextModel> textList;
     private Handler handler;
 
     public VerticalTextView(Context context) {
@@ -83,7 +84,7 @@ public class VerticalTextView extends TextSwitcher implements ViewSwitcher.ViewF
      * @param time
      */
     public void setTextStillTime(final long time){
-       handler =new Handler() {
+        handler =new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what) {
@@ -105,7 +106,7 @@ public class VerticalTextView extends TextSwitcher implements ViewSwitcher.ViewF
      * 设置数据源
      * @param titles
      */
-    public void setTextList(ArrayList<TextModel> titles) {
+    public void setTextList(List<TextModel> titles) {
         textList.clear();
         textList.addAll(titles);
         currentId = -1;
