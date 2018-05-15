@@ -8,6 +8,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Parcelable;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -68,6 +71,7 @@ public class VerticalTextView extends TextSwitcher implements ViewSwitcher.ViewF
     }
 
     public void setAnimTime(long animDuration) {
+        removeAllViewsInLayout();
         setFactory(this);
         Animation in = new TranslateAnimation(0, 0, animDuration, 0);
         in.setDuration(animDuration);
@@ -130,6 +134,8 @@ public class VerticalTextView extends TextSwitcher implements ViewSwitcher.ViewF
     public View makeView() {
         TextView t = new TextView(mContext);
         t.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+        t.setSingleLine();
+        t.setEllipsize(TextUtils.TruncateAt.END);
         t.setMaxLines(1);
         t.setPadding(mPadding, mPadding, mPadding, mPadding);
         t.setTextColor(textColor);
